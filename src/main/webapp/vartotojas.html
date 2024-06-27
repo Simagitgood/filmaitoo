@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmaitoo</title>
+    <style>
+        body {
+            background-color: lightskyblue;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: black;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .film-list-section {
+            background-color: mediumpurple;
+            padding: 20px;
+            width: 45%;
+        }
+
+        .film-list-section p {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .actionButton {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: mediumpurple;
+            color: black;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .actionButton:active {
+            border-color: rgb(214, 205, 205);
+            color: rgb(214, 205, 205);
+        }
+
+        .inputTextBox {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: mediumpurple;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .inputTextBox::placeholder {
+            color: black;
+            text-align: center;
+        }
+
+        .film-table {
+            margin-top: 20px;
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: mediumpurple;
+        }
+
+        .film-table th, .film-table td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .mygtukas {
+            height: 30px;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            background-color: black;
+            margin-top: 20px;
+            padding: 5px 10px;
+        }
+
+        .mygtukas:active {
+            background-color: rgb(36, 35, 35);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sveiki</h1>
+    <button onclick="logout()" class="actionButton">Atsijungti</button>
+    <input id="searchInput" class="inputTextBox" placeholder="Ieškoti filmų" type="text">
+    <button onclick="searchFilm()" class="actionButton">Ieškoti</button>
+</div>
+
+<div class="categories">
+    <div class="film-list-section">
+        <p>Sporto filmai</p>
+        <button onclick="document.location='air.html'">Air</button>
+        <button onclick="document.location='varzovai.html'">Varžovai</button>
+        <button onclick="document.location='king.html'">Karalius Ričardas</button>
+    </div>
+
+    <div class="film-list-section">
+        <p>Istoriniai filmai</p>
+        <button onclick="document.location='ekskursante.html'">Ekskursantė</button>
+        <button onclick="document.location='favorite.html'">Favorite</button>
+        <button onclick="document.location='napaleonas.html'">Napaleonas</button>
+    </div>
+</div>
+
+<script>
+    function logout () {
+        window.location.href ="index.jsp"
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmaitoo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:lightblue;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-placeholder {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .input-button, .actionButton {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: lightcoral;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .input-button:hover, .actionButton:hover {
+            background-color: lightcoral;
+        }
+
+
+
+    </style>
+    <link rel="stylesheet" href="styling-register.css">
+</head>
+<body>
+<main>
+    <form action="registration.php" method="post">
+        <input class="input-placeholder" placeholder="Prisijungimo vardas" type="text" required name="userName"><br>
+        <input class="input-placeholder" id="pass" placeholder="Slaptažodis" type="password" required name="pass"><br>
+        <input class="input-placeholder" placeholder="El. paštas" type="email" required name="email"><br>
+        <input class="input-placeholder" placeholder="Tel. Nr" type="text" required name="phoneNumber"><br>
+        <input type="checkbox" onclick="toggle()"> Rodyti slaptažodį</label><br>
+        <input class="input-button" value="Registruotis" type="submit">
+        <button type="button" onclick="logout()" class="actionButton">Atgal</button>
+    </form>
+</main>
+<script>
+    function logout() {
+        window.location.href = "index.jsp";
+    }
+
+    function toggle() {
+        var pass = document.getElementById('pass');
+        if (pass.type === 'password') {
+            pass.type = 'text';
+        } else {
+            pass.type = 'password';
+        }
+    }
+</script>
+</body>
+</html>

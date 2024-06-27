@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmaitoo</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: black;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .inputTextBox, .actionButton {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: mediumpurple;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .actionButton {
+            cursor: pointer;
+        }
+
+        .actionButton:active {
+            border-color: rgb(214, 205, 205);
+            color: rgb(214, 205, 205);
+        }
+
+        .inputTextBox::placeholder {
+            color: black;
+            text-align: center;
+        }
+
+        .film-table-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .film-table {
+            width: 40%;
+            border-collapse: collapse;
+            background-color: mediumpurple;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .film-table th, .film-table td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .film-table th {
+            background-color: mediumpurple;
+            color: white;
+        }
+
+        .film-table td {
+            background-color: lavender;
+        }
+
+        .film-table-container div {
+            width: 45%;
+        }
+
+        h2 {
+            background-color: mediumpurple;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sveiki, admin</h1>
+    <button onclick="logout()" class="actionButton">Atsijungti</button>
+    <input id="searchInput" class="inputTextBox" placeholder="Ieškoti filmų" type="text">
+    <button onclick="searchFilm()" class="actionButton">Ieškoti</button>
+</div>
+<div class="categories">
+    <div class="film-list-section">
+        <h2>Sporto filmai</h2>
+        <button onclick="document.location='air2.html'">Air</button>
+        <button onclick="document.location='varzovai2.html'">Varžovai</button>
+        <button onclick="document.location='king2.html'">Karalius Ričardas</button>
+    </div>
+</div>
+
+<div class="categories">
+    <div class="film-list-section">
+        <h2>Istoriniai filmai</h2>
+        <button onclick="document.location='ekskursante2.html'">Ekskursantė</button>
+        <button onclick="document.location='favorite2.html'">Favorite</button>
+        <button onclick="document.location='napaleonas2.html'">Napaleonas</button>
+    </div>
+</div>
+
+
+
+<input id="addInput" class="inputTextBox" type="text" placeholder="Pridėti filmą">
+<button onclick="addFilm()" class="actionButton">Pridėti</button>
+<input id="deleteInput" class="inputTextBox" type="text" placeholder="Ištrinti filmą">
+<button onclick="deleteFilm()" class="actionButton">Ištrinti</button>
+<button onclick="goBack()" class="actionButton">Atgal</button>
+</div>
+
+<script>
+    function atgal() {
+        window.location = "index.jsp";
+
+    }
+
+
+    function addFilm() {
+        var input = document.getElementById('addInput').value;
+        if (input.trim() !== "") {
+            var table = document.getElementById("filmTable");
+            var row = table.insertRow();
+            var cell = row.insertCell(0);
+            cell.innerHTML = input;
+        } else {
+            alert("Please enter a film name to add.");
+        }
+    }
+
+    function deleteFilm() {
+        var input = document.getElementById('deleteInput').value.toLowerCase().trim();
+        var table = document.getElementById("filmTable");
+        var rows = table.getElementsByTagName('tr');
+        var found = false;
+
+        for (var i = 0; i < rows.length; i++) {
+            if (rows[i].innerText.toLowerCase().includes(input)) {
+                table.deleteRow(i);
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            alert("Tokio filmo nėra!");
+        }
+    }
+
+    function searchFilm() {
+        var input = document.getElementById('searchInput').value.toLowerCase().trim();
+        if (input) {
+            alert('Searching for: ' + input); // Replace with actual search logic
+        } else {
+            alert('Please enter a film name to search.');
+        }
+    }
+
+    function logout() {
+        window.location.href = "index.jsp";
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>

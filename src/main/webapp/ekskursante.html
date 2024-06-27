@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekskursantė</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            color: black;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            text-align: left;
+            color: black;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+
+        .mygtukas {
+            height: 30px;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            background-color: black;
+            margin: 10px;
+        }
+
+        .mygtukas:active {
+            background-color: rgb(36, 35, 35);
+        }
+
+        textarea {
+            resize: none;
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .atsiliepimai button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .atsiliepimai button:hover {
+            background-color: rgb(36, 35, 35);
+        }
+
+        #komentarai p {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .imdb-ivertinimas {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .imdb-ivertinimas span {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Ekskursantė</h1>
+</div>
+<img src=" https://r-scale-fd.dcs.redcdn.pl/scale/o2/lrt/portal/prod/upload/vod/163344/images/114125_1684930979486?srcmode=0&srcx=0&srcy=0&quality=65&type=1&srcw=1/1&srch=1/1&dsth=630&dstw=1200"
+     height="250" height="250">
+<p>Filmas sukurtas pagal tikrą 11-metės mergaitės iš Lietuvos istoriją.<br>
+    Pabėgusi iš tremtiniais perpildyto krovininio traukinio, vežusio ją ir jos šeimą į Sibirą,<br>
+    ji įveikė 6.000 km ilgą ir pilną pavojų bei nuotykių kelią namo- į Lietuvą.<br>
+    Keliaudama ji sutiko įvairių žmonių: vargšę rusų moterį, gyvenančią apleistame kaime taigoje,<br>
+    prasigėrusį vairuotoją, traukinio konduktorių, iš lagerių pabėgusių plėšikų gaują, žiaurų daktarą, <br>
+    dirbantį vaikų lageryje, įsimylėjusį lėktuvo pilotą, NKVD narį ir NKVD kareivius, medžiojančius lietuvių partizanus...<br>
+    Ir visi jie sutrumpino mergaitės kelionę į Tėvynę, rizikuodami ne tik asmenine laisve, bet ir gyvybe.<br>
+    Kai kurie jos sutikti žmonės ją žlugdė, kai kurie abejingai nusisuko ir netrukdė jos kelionei.<br>
+    Tik keli jų sutiko pagelbėti įgyvendinti jos viltį grįžti namo, į Lietuvą.<br>
+    Tai filmas apie viltį ir lemtį, meilę ir draugystę, pasiaukojimą ir geraširdiškumą <br>
+    bei neišmatuojamą meilę savo kraštui, savo Tėvynei ....</p>
+<div class="imdb-ivertinimas">
+    <span>IMDB Įvertinimas:8.1</span>
+</div>
+
+
+</div>
+<table class="table">
+    <tr>
+        <th>Filmo režisieris:</th>
+        <td>Audrius Juzėnas</td>
+        <td>Algirdas Šemeškevičius</td>
+    </tr>
+    <tr>
+        <th>Filmo žvaigždės</th>
+        <td>Anastasija Marčenkaitė (mergaitė)</td>
+        <td>Nelė Savišenko</td>
+        <td>Margarita Žiemelytė</td>
+        <td>Darius Meškauskas</td>
+        <td>Airida Gintautaitė</td>
+        <td>Eglė Mikulionytė</td>
+        <td>Sakalas Uždavinys</td>
+        <td>Algirdas Paulavičius</td>
+    </tr>
+</table>
+
+<div class="atsiliepimai">
+    <p>Komentarų skiltis</p>
+    <input id="inputVardas" placeholder="Vardas" type="text"><br>
+    <textarea name="komentaras" id="kmt" cols="30" rows="3" maxlength="90" placeholder="Komentaras"></textarea><br>
+    <button onclick="komentaras()" id="skelbtiBtn">Paskelbti</button>
+    <div id="komentarai"></div>
+</div>
+
+<button class="mygtukas" onclick="atgal()">Atgal į pagrindinį puslapį</button>
+
+
+
+<script>
+    function atgal() {
+        window.location.href = "vartotojas.html";
+    }
+
+
+
+
+
+    function komentaras() {
+        const vardas = document.getElementById('inputVardas').value.trim();
+        const kmt = document.getElementById('kmt').value.trim();
+
+        if (!vardas || !kmt) {
+            alert('Jūs neivedėte savo vardo arba pakomentavote tuščią komentarą!');
+            return;
+        }
+
+        const komentaraiDiv = document.getElementById('komentarai');
+        const newComment = document.createElement('p');
+        newComment.textContent = `${vardas}: ${kmt}`;
+        komentaraiDiv.appendChild(newComment);
+
+        document.getElementById('inputVardas').value = '';
+        document.getElementById('kmt').value = '';
+    }
+</script>
+
+</body>
+</html>

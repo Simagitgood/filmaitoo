@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napaleonas</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: Arial, sans-serif;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+        }
+
+        p {
+            color: black;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            text-align: left;
+            color: black;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+
+        .mygtukas {
+            height: 30px;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            background-color: black;
+            margin: 10px;
+        }
+
+        .mygtukas:active {
+            background-color: rgb(36, 35, 35);
+        }
+
+        textarea {
+            resize: none;
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .atsiliepimai button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .atsiliepimai button:hover {
+            background-color: rgb(36, 35, 35);
+        }
+
+        #komentarai p {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .imdb-ivertinimas {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .imdb-ivertinimas span {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Napaleonas</h1>
+</div>
+<img src="https://media.multikino.lt/thumbnails/50/rc/RDM2RDQ2/eyJ0aHVtYm5haWwiOnsic2l6ZSI6WyIxMDAwMCIsIjEwMDAwIl0sIm1vZGUiOiJpbnNldCJ9fQ==/uploads/images/films_and_events/napoleon-digi-1080x1920_1042596dcb.jpg"
+     height="250" height="250">
+<p>
+    Imperatorius. Meilužis. Tironas. Legenda. Atėjęs iš niekur, jis užkariavo viską.<br>
+    Nuo legendinio Prancūzijos imperatoriaus mirties mirties praėjus 200 metų, jis vis dar<br>
+    laikomas vienu geriausių ir sėkmingiausių karo vadų pasaulio istorijoje. Jo mūšių schemos<br>
+    iki pat mūsų dienų analizuojamos karo mokyklose, o svaiginantis skrydis į politikos ir galios<br>
+    viršūnę bei nuopuolis iš jos iki šiol gniaužia kvapą ir kaitina vaizduotę.<br>
+    Naujoji legendinio režisieriaus Ridley Scotto juosta pasakoja apie intrigų, <br>
+    žiaurumo, drąsos ir įžūlumo pilną Napoleono (Oskaro laureatas aktorius Joaquinas Phoenixas)<br>
+    kelią į šlovės viršūnę jo mylimos žmonos, imperatorės Džozefinos (akt. Vanessa Kirby) akimis. <br>
+    Šiurpą varančius negailestingus politinius žaidimus lyg kaleidoskope keičia kvapą gniaužiantys <br>
+    imperatoriaus mūšiai neabejotinai viename įspūdingiausių šių metų didžiojo ekrano filmų.<br>
+</p>
+
+<div class="imdb-ivertinimas">
+    <span>IMDB Įvertinimas:6.4</span>
+</div>
+
+
+</div>
+<table class="table">
+    <tr>
+        <th>Filmo režisieris:</th>
+        <td>Ridley Scott</td>
+
+    </tr>
+    <tr>
+        <th>Filmo žvaigždės</th>
+        <td>Joaquin Pheonix</td>
+        <td>Vanessa Kirby</td>
+    </tr>
+
+</table>
+
+<div class="atsiliepimai">
+    <p>Komentarų skiltis</p>
+    <input id="inputVardas" placeholder="Vardas" type="text"><br>
+    <textarea name="komentaras" id="kmt" cols="30" rows="3" maxlength="90" placeholder="Komentaras"></textarea><br>
+    <button onclick="komentaras()" id="skelbtiBtn">Paskelbti</button>
+    <div id="komentarai"></div>
+</div>
+
+<button class="mygtukas" onclick="atgal()">Atgal į pagrindinį puslapį</button>
+
+
+
+<script>
+    function atgal() {
+        window.location.href = "admin.html";
+    }
+
+    function komentaras() {
+        const vardas = document.getElementById('inputVardas').value.trim();
+        const kmt = document.getElementById('kmt').value.trim();
+
+        if (!vardas || !kmt) {
+            alert('Jūs neivedėte savo vardo arba pakomentavote tuščią komentarą!');
+            return;
+        }
+
+        const komentaraiDiv = document.getElementById('komentarai');
+        const newComment = document.createElement('p');
+        newComment.textContent = `${vardas}: ${kmt}`;
+        komentaraiDiv.appendChild(newComment);
+
+        document.getElementById('inputVardas').value = '';
+        document.getElementById('kmt').value = '';
+    }
+</script>
+
+</body>
+</html>
